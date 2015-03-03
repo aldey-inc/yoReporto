@@ -1,0 +1,94 @@
+<?php
+
+namespace Yoreporto\ActividadBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Activity
+ *
+ * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"idProject"})})
+ * @ORM\Entity
+ */
+class Activity
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idActivity", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idactivity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hour", type="integer", nullable=false)
+     */
+    private $hour = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="minutes", type="integer", nullable=false)
+     */
+    private $minutes = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startTime", type="datetime", nullable=false)
+     */
+    private $starttime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endTime", type="datetime", nullable=false)
+     */
+    private $endtime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     */
+    private $createdat;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     */
+    private $updatedat;
+
+    /**
+     * @var \Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idProject", referencedColumnName="idProject")
+     * })
+     */
+    private $idproject;
+
+    /**
+     * @var \Report
+     *
+     * @ORM\ManyToOne(targetEntity="Report")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idReport", referencedColumnName="idReport")
+     * })
+     */
+    private $idreport;
+
+
+}

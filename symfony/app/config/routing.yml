@@ -1,3 +1,15 @@
+yoreporto_proyecto:
+    resource: "@YoreportoProyectoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+yoreporto_actividad:
+    resource: "@YoreportoActividadBundle/Resources/config/routing.yml"
+    prefix:   /
+
+yoreporto_reporte:
+    resource: "@YoreportoReporteBundle/Resources/config/routing.yml"
+    prefix:   /
+
 yoreporto_usuario:
     resource: "@YoreportoUsuarioBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,3 +17,14 @@ yoreporto_usuario:
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+
+user_login:
+    pattern:   /user/login
+    defaults:  { _controller: QuinielaMainBundle:Default:login }
+
+user_login_check:
+    pattern:   /user/login_check
+
+user_logout:
+    pattern:   /user/logout
