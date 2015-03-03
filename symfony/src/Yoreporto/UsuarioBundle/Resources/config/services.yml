@@ -1,0 +1,4 @@
+services:
+#    yoreporto_usuario.example:
+#        class: Yoreporto\UsuarioBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

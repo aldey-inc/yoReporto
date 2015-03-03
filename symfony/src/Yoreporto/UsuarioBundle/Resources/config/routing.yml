@@ -1,0 +1,3 @@
+yoreporto_usuario_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: YoreportoUsuarioBundle:Default:index }
