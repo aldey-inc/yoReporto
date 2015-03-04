@@ -1,0 +1,39 @@
+{% extends '::base.html.twig'%}
+{% block title %} Página de acceso{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="{{asset('bundles/yoreportousuario/css/style.css')}}">  
+{% endblock %}
+
+{% block body %}            
+
+  <form action="{{ path('user_login_check') }}" method="post" class="login">
+    <p>                      
+      <label for="login">Email:</label>
+      <input type="text" id="login" name="_username"                       value="{{ last_username }}" />
+    </p>
+
+    <p>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="_password">
+    </p>
+                                               
+    <p class="forgot-password">
+      No cerrar sesión                      					
+     	<input type="checkbox" id="no_cerrar" name="_remember_me" checked />
+    </p> 
+
+    <p  class="login-submit">
+      <button type="submit" name="login" class="login-button">Acceder</button>
+    </p>
+
+    <p class="forgot-password">
+      <a> 
+        {% if error %}
+           {{ error.message }}
+        {% endif %}
+      </a>
+    </p>
+  </form>            		
+          		
+{% endblock %}
+

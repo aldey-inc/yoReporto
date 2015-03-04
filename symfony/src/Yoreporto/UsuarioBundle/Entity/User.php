@@ -303,4 +303,21 @@ class User implements UserInterface
     {
         return $this->deletedat;
     }
+
+
+    /**
+    * Funciones que se tienen que definir debido a la implementación de la Interfaz
+    */
+    function eraseCredentials()
+    {
+    }
+    function getRoles()
+    {
+        return array('ROLE_USUARIO');
+    }
+    function getUsername()
+    {
+        return $this->getEmail();
+    }
+
 }

@@ -1,3 +1,21 @@
 yoreporto_usuario_homepage:
     path:     /hello/{name}
-    defaults: { _controller: YoreportoUsuarioBundle:Default:index }
+    defaults:  { _controller: YoreportoUsuarioBundle:Default:index }
+
+user_login:
+    pattern:   /user/login
+    defaults:  { _controller: YoreportoUsuarioBundle:Default:login }
+
+user_login:
+    pattern:   /user/login
+    defaults:  { _controller: YoreportoUsuarioBundle:Default:login }
+
+user_login_check:
+    pattern:   /user/login_check
+
+user_logout:
+    pattern:   /user/logout
+
+user_workspace:
+    pattern:   /user/user_workspace
+    defaults: { _controller: YoreportoUsuarioBundle:Default:workspace}

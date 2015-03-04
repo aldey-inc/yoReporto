@@ -2,25 +2,24 @@ security:
     firewalls:
         frontend:
             pattern:     ^/*
-              anonymous: ~              
-              form_login:                  
-                  default_target_path: /view/Profile
-                  always_use_default_target_path: true
-                  login_path: user_login
-                  check_path: user_login_check  
-              logout:
-                  path: user_logout                  
-              remember_me:
+            anonymous: ~        
+            form_login:   
+                default_target_path: user_workspace
+                always_use_default_target_path: true               
+                login_path: user_login
+                check_path: user_login_check  
+            logout:
+                path: user_logout                  
+            remember_me:
                 key: yoreporte123
                 lifetime: 10
     access_control:
         - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }          
+        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user/*, roles: ROLE_USUARIO }
-        - { path: ^/view/*, roles: ROLE_USUARIO }
         - { path: ^/*, roles: ROLE_USUARIO }
     providers:
         usuarios:
-        entity: { class: Yoreporto\UsuarioBundle\Entity\User, property: email }
+            entity: { class: Yoreporto\UsuarioBundle\Entity\User, property: email }
     encoders:
-        Yoreporto\UusarioBundle\Entity\User: plaintext
+        Yoreporto\UsuarioBundle\Entity\User: plaintext

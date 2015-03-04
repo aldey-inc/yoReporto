@@ -1,0 +1,14 @@
+{% extends '::workspace.html.twig'%}
+{% block title %} Reporte de actividades {% endblock %}
+{% block stylesheets %}
+  <!--
+  <link rel="stylesheet" type="text/css" href="{{asset('bundles/yoreportousuario/css/style.css')}}">  
+  -->
+{% endblock %}
+
+{% block body %}            
+
+  Hoja de Trabajo del empleado   		
+          		
+{% endblock %}
+
