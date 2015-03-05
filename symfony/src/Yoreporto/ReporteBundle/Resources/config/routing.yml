@@ -1,3 +1,7 @@
 yoreporto_reporte_homepage:
     path:     /hello/{name}
     defaults: { _controller: YoreportoReporteBundle:Default:index }
+
+yoreporto_new_report:
+    path:     /new/Report
+    defaults: { _controller: YoreportoReporteBundle:Default:newReport }
