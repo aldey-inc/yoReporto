@@ -1,0 +1,131 @@
+{% extends '::workspace.html.twig'%}
+
+
+{% block newActivity %}
+
+	{{ form_start(form) }}
+
+		<div class="form_error"> {{ form_errors(form) }} </div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.hour) }} </div>
+			<div class="form_label"> {{ form_label(form.hour) }} </div>
+			<div class="form_input"> {{ form_widget(form.hour) }} </div>
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.minutes) }} </div>
+			<div class="form_label"> {{ form_label(form.minutes) }} </div>
+			<div class="form_input"> {{ form_widget(form.minutes) }} </div>
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.description)}} </div>
+			<div class="form_label"> {{ form_label(form.description)}} </div>
+			<div class="form_input"> {{ form_widget(form.description) }} </div>			
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.starttime) }} </div>
+			<div class="form_label"> {{ form_label(form.starttime) }} </div>
+			<div class="form_input"> {{ form_widget(form.starttime) }} </div>			
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.endtime) }} </div>
+			<div class="form_label"> {{ form_label(form.endtime) }} </div>
+			<div class="form_input"> {{ form_widget(form.endtime) }} </div>
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.createdat)}} </div>
+			<div class="form_label"> {{ form_label(form.createdat) }} </div>
+			<div class="form_input"> {{ form_widget(form.createdat) }} </div>			
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.updatedat)}} </div>
+			<div class="form_label"> {{ form_label(form.updatedat) }} </div>
+			<div class="form_input"> {{ form_widget(form.updatedat) }} </div>			
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.idproject) }} </div>
+			<div class="form_label"> {{ form_label(form.idproject) }} </div>
+			<div class="form_input"> {{ form_widget(form.idproject) }} </div>			
+		</div>
+
+		<div class="form_bloque">
+			<div class="form_error"> {{ form_errors(form.idreport) }} </div>
+			<div class="form_label"> {{ form_label(form.idreport) }}</div>
+			<div class="form_input"> {{ form_widget(form.idreport) }} </div>
+		</div>
+
+
+	{{ form_end(form)}}
+	
+    <article class="module width_full">
+      <header><h3>Post New Article base 3</h3></header>
+        <div class="module_content">
+            <fieldset>
+              <label>Nueva actividad</label>
+              <input type="text">
+            </fieldset>
+            <fieldset>
+              <label>Content</label>
+              <textarea rows="12"></textarea>
+            </fieldset>
+            <fieldset style="width:48%; float:left; margin-right: 3%;"> <!-- to make two field float next to one another, adjust values accordingly -->
+              <label>Category</label>
+              <select style="width:92%;">
+                <option>Articles</option>
+                <option>Tutorials</option>
+                <option>Freebies</option>
+              </select>
+            </fieldset>
+            <fieldset style="width:48%; float:left;"> <!-- to make two field float next to one another, adjust values accordingly -->
+              <label>Tags</label>
+              <input type="text" style="width:92%;">
+            </fieldset><div class="clear"></div>
+        </div>
+      <footer>
+        <div class="submit_link">
+          <select>
+            <option>Draft</option>
+            <option>Published</option>
+          </select>
+          <input type="submit" value="Publish" class="alt_btn">
+          <input type="submit" value="Reset">
+        </div>
+      </footer>
+    </article><!-- end of post new article -->
+    
+
+{% endblock%}
+
+
+{% block listReports %}
+    <article class="module width_quarter">
+      <header><h3>Messages</h3></header>
+      <div class="message_list">
+        <div class="module_content">
+          <div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+          <p><strong>John Doe</strong></p></div>
+          <div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+          <p><strong>John Doe</strong></p></div>
+          <div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+          <p><strong>John Doe</strong></p></div>
+          <div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+          <p><strong>John Doe</strong></p></div>
+          <div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+          <p><strong>John Doe</strong></p></div>
+        </div>
+      </div>
+      <footer>
+        <form class="post_message">
+          <input type="text" value="Message" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+          <input type="submit" class="btn_post_message" value=""/>
+        </form>
+      </footer>
+    </article><!-- end of messages article -->
+{% endblock %}
