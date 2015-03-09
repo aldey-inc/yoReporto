@@ -6,11 +6,19 @@
   
   <title>{% block title %} Reportando día a día{% endblock %} </title>
   
+  <link rel="stylesheet" href="{{asset('bundles/yoreportousuario/css/jquery.datetimepicker.css')}}" type="text/css" media="screen" />
+
+
   <link rel="stylesheet" href="{{asset('bundles/yoreportousuario/css/workspace.css')}}" type="text/css" media="screen" />
   <!--[if lt IE 9]>
   <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="js/jquery.datetimepicker.js" type="text/javascript"></script>
+  
+
   <script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
   <script src="js/hideshow.js" type="text/javascript"></script>
   <script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
@@ -29,8 +37,8 @@
   $(".tab_content:first").show(); //Show first tab content
 
   //On Click Event
-  $("ul.tabs li").click(function() {
-
+  $("ul.tabs li").click(function() 
+{
     $("ul.tabs li").removeClass("active"); //Remove any "active" class
     $(this).addClass("active"); //Add "active" class to selected tab
     $(".tab_content").hide(); //Hide all tab content
@@ -298,8 +306,9 @@
     </article><!-- end of styles article -->
     <div class="spacer"></div>
   </section>
-
 {% endblock %}
-</body>
+</body>                                            
+
+
 
 </html>
