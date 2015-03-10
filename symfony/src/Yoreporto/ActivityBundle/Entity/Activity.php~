@@ -1,13 +1,13 @@
 <?php
 
-namespace Yoreporto\ActividadBundle\Entity;
+namespace Yoreporto\ActivityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Activity
  *
- * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_User1_idx", columns={"User_idUser"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"Project_idProject"})})
+ * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_User1_idx", columns={"idUser"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"idProject"})})
  * @ORM\Entity
  */
 class Activity
@@ -20,20 +20,6 @@ class Activity
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idactivity;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="hour", type="integer", nullable=false)
-     */
-    private $hour = '0';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="minutes", type="integer", nullable=false)
-     */
-    private $minutes = '0';
 
     /**
      * @var string
@@ -71,14 +57,21 @@ class Activity
     private $updatedat;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="activityAt", type="datetime", nullable=false)
+     */
+    private $activityat;
+
+    /**
      * @var \Project
      *
      * @ORM\ManyToOne(targetEntity="Project")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Project_idProject", referencedColumnName="idProject")
+     *   @ORM\JoinColumn(name="idProject", referencedColumnName="idProject")
      * })
      */
-    private $projectproject;
+    private $idproject;
 
     /**
      * @var \Report
@@ -95,10 +88,10 @@ class Activity
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="User_idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
      * })
      */
-    private $useruser;
+    private $iduser;
 
 
 }

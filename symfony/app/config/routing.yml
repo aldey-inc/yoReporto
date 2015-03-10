@@ -1,17 +1,5 @@
-yoreporto_proyecto:
-    resource: "@YoreportoProyectoBundle/Resources/config/routing.yml"
-    prefix:   /
-
-yoreporto_actividad:
-    resource: "@YoreportoActividadBundle/Resources/config/routing.yml"
-    prefix:   /
-
-yoreporto_reporte:
-    resource: "@YoreportoReporteBundle/Resources/config/routing.yml"
-    prefix:   /
-
-yoreporto_usuario:
-    resource: "@YoreportoUsuarioBundle/Resources/config/routing.yml"
+yoreporto_activity:
+    resource: "@YoreportoActivityBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:

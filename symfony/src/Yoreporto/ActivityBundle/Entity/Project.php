@@ -1,6 +1,6 @@
 <?php
 
-namespace Yoreporto\ProyectoBundle\Entity;
+namespace Yoreporto\ActivityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Yoreporto\ActividadBundle\Entity;
+namespace Yoreporto\ActivityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Activity
  *
- * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_User1_idx", columns={"User_idUser"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"Project_idProject"})})
+ * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_User1_idx", columns={"idUser"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"idProject"})})
  * @ORM\Entity
  */
 class Activity
@@ -20,20 +20,6 @@ class Activity
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idactivity;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="hour", type="integer", nullable=false)
-     */
-    private $hour = '0';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="minutes", type="integer", nullable=false)
-     */
-    private $minutes = '0';
 
     /**
      * @var string
@@ -71,14 +57,21 @@ class Activity
     private $updatedat;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="activityAt", type="datetime", nullable=false)
+     */
+    private $activityat;
+
+    /**
      * @var \Project
      *
      * @ORM\ManyToOne(targetEntity="Project")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Project_idProject", referencedColumnName="idProject")
+     *   @ORM\JoinColumn(name="idProject", referencedColumnName="idProject")
      * })
      */
-    private $projectproject;
+    private $idproject;
 
     /**
      * @var \Report
@@ -95,10 +88,10 @@ class Activity
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="User_idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
      * })
      */
-    private $useruser;
+    private $iduser;
 
 
 
@@ -110,52 +103,6 @@ class Activity
     public function getIdactivity()
     {
         return $this->idactivity;
-    }
-
-    /**
-     * Set hour
-     *
-     * @param integer $hour
-     * @return Activity
-     */
-    public function setHour($hour)
-    {
-        $this->hour = $hour;
-
-        return $this;
-    }
-
-    /**
-     * Get hour
-     *
-     * @return integer 
-     */
-    public function getHour()
-    {
-        return $this->hour;
-    }
-
-    /**
-     * Set minutes
-     *
-     * @param integer $minutes
-     * @return Activity
-     */
-    public function setMinutes($minutes)
-    {
-        $this->minutes = $minutes;
-
-        return $this;
-    }
-
-    /**
-     * Get minutes
-     *
-     * @return integer 
-     */
-    public function getMinutes()
-    {
-        return $this->minutes;
     }
 
     /**
@@ -274,35 +221,58 @@ class Activity
     }
 
     /**
-     * Set projectproject
+     * Set activityat
      *
-     * @param \Yoreporto\ActividadBundle\Entity\Project $projectproject
+     * @param \DateTime $activityat
      * @return Activity
      */
-    public function setProjectproject(\Yoreporto\ActividadBundle\Entity\Project $projectproject = null)
+    public function setActivityat($activityat)
     {
-        $this->projectproject = $projectproject;
+        $this->activityat = $activityat;
 
         return $this;
     }
 
     /**
-     * Get projectproject
+     * Get activityat
      *
-     * @return \Yoreporto\ActividadBundle\Entity\Project 
+     * @return \DateTime 
      */
-    public function getProjectproject()
+    public function getActivityat()
     {
-        return $this->projectproject;
+        return $this->activityat;
+    }
+
+    /**
+     * Set idproject
+     *
+     * @param \Yoreporto\ActivityBundle\Entity\Project $idproject
+     * @return Activity
+     */
+    public function setIdproject(\Yoreporto\ActivityBundle\Entity\Project $idproject = null)
+    {
+        $this->idproject = $idproject;
+
+        return $this;
+    }
+
+    /**
+     * Get idproject
+     *
+     * @return \Yoreporto\ActivityBundle\Entity\Project 
+     */
+    public function getIdproject()
+    {
+        return $this->idproject;
     }
 
     /**
      * Set idreport
      *
-     * @param \Yoreporto\ActividadBundle\Entity\Report $idreport
+     * @param \Yoreporto\ActivityBundle\Entity\Report $idreport
      * @return Activity
      */
-    public function setIdreport(\Yoreporto\ActividadBundle\Entity\Report $idreport = null)
+    public function setIdreport(\Yoreporto\ActivityBundle\Entity\Report $idreport = null)
     {
         $this->idreport = $idreport;
 
@@ -312,7 +282,7 @@ class Activity
     /**
      * Get idreport
      *
-     * @return \Yoreporto\ActividadBundle\Entity\Report 
+     * @return \Yoreporto\ActivityBundle\Entity\Report 
      */
     public function getIdreport()
     {
@@ -320,25 +290,25 @@ class Activity
     }
 
     /**
-     * Set useruser
+     * Set iduser
      *
-     * @param \Yoreporto\ActividadBundle\Entity\User $useruser
+     * @param \Yoreporto\ActivityBundle\Entity\User $iduser
      * @return Activity
      */
-    public function setUseruser(\Yoreporto\ActividadBundle\Entity\User $useruser = null)
+    public function setIduser(\Yoreporto\ActivityBundle\Entity\User $iduser = null)
     {
-        $this->useruser = $useruser;
+        $this->iduser = $iduser;
 
         return $this;
     }
 
     /**
-     * Get useruser
+     * Get iduser
      *
-     * @return \Yoreporto\ActividadBundle\Entity\User 
+     * @return \Yoreporto\ActivityBundle\Entity\User 
      */
-    public function getUseruser()
+    public function getIduser()
     {
-        return $this->useruser;
+        return $this->iduser;
     }
 }

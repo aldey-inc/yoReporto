@@ -1,0 +1,7 @@
+yoreporto_activity_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: YoreportoActivityBundle:Default:index }
+
+yoreporto_new_activity:
+    path: /new/Activity
+    defaults: { _controller: YoreportoActivityBundle:Default:newActivity }

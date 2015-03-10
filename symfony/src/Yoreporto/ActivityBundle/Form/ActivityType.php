@@ -1,6 +1,6 @@
 <?php
 
-namespace Yoreporto\ActividadBundle\Form;
+namespace Yoreporto\ActivityBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,18 +15,17 @@ class ActivityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('hour','integer',array('required'=>true))
-            ->add('minutes','integer',array('required'=>true))
             ->add('description')
             ->add('starttime')
             ->add('endtime')
-            ->add('createdat','datetime')
-            ->add('updatedat','datetime')
-            ->add('projectproject')
+            ->add('createdat')
+            ->add('updatedat')
+            ->add('activityat')
+            ->add('idproject')
             ->add('idreport')
-            ->add('useruser')
-            ->add('Guardar','submit');
-        ;        
+            ->add('iduser')
+            ->add('Guardar','submit')
+        ;
     }
     
     /**
@@ -35,7 +34,7 @@ class ActivityType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Yoreporto\ActividadBundle\Entity\Activity'
+            'data_class' => 'Yoreporto\ActivityBundle\Entity\Activity'
         ));
     }
 
@@ -44,6 +43,6 @@ class ActivityType extends AbstractType
      */
     public function getName()
     {
-        return 'yoreporto_actividadbundle_activity';
+        return 'yoreporto_activitybundle_activity';
     }
 }

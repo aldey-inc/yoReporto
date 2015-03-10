@@ -1,8 +1,7 @@
 <?php
 
-namespace Yoreporto\UsuarioBundle\Entity;
+namespace Yoreporto\ActivityBundle\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements UserInterface
+class User
 {
     /**
      * @var integer
@@ -303,18 +302,4 @@ class User implements UserInterface
     {
         return $this->lastconnection;
     }
-
-
-    function eraseCredentials(){
-
-    }
-
-    function  getRoles(){
-        return array('ROLE_USUARIO');
-    }
-
-    function getUsername(){
-        return $this->getEmail();
-    }
-
 }

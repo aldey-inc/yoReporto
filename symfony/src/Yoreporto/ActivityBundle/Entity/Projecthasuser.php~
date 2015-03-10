@@ -1,0 +1,59 @@
+<?php
+
+namespace Yoreporto\ActivityBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projecthasuser
+ *
+ * @ORM\Table(name="projecthasuser", indexes={@ORM\Index(name="fk_Project_has_User_User1_idx", columns={"idUser"}), @ORM\Index(name="fk_Project_has_User_Project1_idx", columns={"idProject"})})
+ * @ORM\Entity
+ */
+class Projecthasuser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idProjectHasUser", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idprojecthasuser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime", nullable=false)
+     */
+    private $createdat;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updatedAt", type="datetime", nullable=false)
+     */
+    private $updatedat;
+
+    /**
+     * @var \Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idProject", referencedColumnName="idProject")
+     * })
+     */
+    private $idproject;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
+     * })
+     */
+    private $iduser;
+
+
+}
