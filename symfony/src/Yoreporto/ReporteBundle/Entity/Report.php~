@@ -1,13 +1,13 @@
 <?php
 
-namespace Yoreporto\ReporteBundle\Entity;
+namespace Yoreporto\ActividadBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Report
  *
- * @ORM\Table(name="report", indexes={@ORM\Index(name="fk_Report_User1_idx", columns={"idUser"})})
+ * @ORM\Table(name="report")
  * @ORM\Entity
  */
 class Report
@@ -48,16 +48,6 @@ class Report
      * @ORM\Column(name="status", type="integer", nullable=false)
      */
     private $status = '0';
-
-    /**
-     * @var \User
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
-     * })
-     */
-    private $iduser;
 
 
 }

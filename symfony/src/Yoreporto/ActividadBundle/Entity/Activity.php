@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Activity
  *
- * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"idProject"})})
+ * @ORM\Table(name="activity", indexes={@ORM\Index(name="fk_Activity_Report1_idx", columns={"idReport"}), @ORM\Index(name="fk_Activity_User1_idx", columns={"User_idUser"}), @ORM\Index(name="fk_Activity_Project1_idx", columns={"Project_idProject"})})
  * @ORM\Entity
  */
 class Activity
@@ -75,10 +75,10 @@ class Activity
      *
      * @ORM\ManyToOne(targetEntity="Project")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idProject", referencedColumnName="idProject")
+     *   @ORM\JoinColumn(name="Project_idProject", referencedColumnName="idProject")
      * })
      */
-    private $idproject;
+    private $projectproject;
 
     /**
      * @var \Report
@@ -89,6 +89,16 @@ class Activity
      * })
      */
     private $idreport;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="User_idUser", referencedColumnName="idUser")
+     * })
+     */
+    private $useruser;
 
 
 
@@ -264,26 +274,26 @@ class Activity
     }
 
     /**
-     * Set idproject
+     * Set projectproject
      *
-     * @param \Yoreporto\ActividadBundle\Entity\Project $idproject
+     * @param \Yoreporto\ActividadBundle\Entity\Project $projectproject
      * @return Activity
      */
-    public function setIdproject(\Yoreporto\ActividadBundle\Entity\Project $idproject = null)
+    public function setProjectproject(\Yoreporto\ActividadBundle\Entity\Project $projectproject = null)
     {
-        $this->idproject = $idproject;
+        $this->projectproject = $projectproject;
 
         return $this;
     }
 
     /**
-     * Get idproject
+     * Get projectproject
      *
      * @return \Yoreporto\ActividadBundle\Entity\Project 
      */
-    public function getIdproject()
+    public function getProjectproject()
     {
-        return $this->idproject;
+        return $this->projectproject;
     }
 
     /**
@@ -307,5 +317,28 @@ class Activity
     public function getIdreport()
     {
         return $this->idreport;
+    }
+
+    /**
+     * Set useruser
+     *
+     * @param \Yoreporto\ActividadBundle\Entity\User $useruser
+     * @return Activity
+     */
+    public function setUseruser(\Yoreporto\ActividadBundle\Entity\User $useruser = null)
+    {
+        $this->useruser = $useruser;
+
+        return $this;
+    }
+
+    /**
+     * Get useruser
+     *
+     * @return \Yoreporto\ActividadBundle\Entity\User 
+     */
+    public function getUseruser()
+    {
+        return $this->useruser;
     }
 }

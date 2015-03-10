@@ -1,4 +1,4 @@
-{% extends '::workspace.html.twig'%}
+
 
 
 {% block newActivity %}
@@ -76,19 +76,28 @@
 			</div>
 		</fieldset>
 
-		<fieldset>
-			<div class="form_bloque">
-				<h4 class="alert_error"> {{ form_errors(form.idproject) }} </h4>
-				{{ form_label(form.idproject) }}
-				{{ form_widget(form.idproject) }}
-			</div>
-		</fieldset>
-
+		
 		<fieldset>
 			<div class="form_bloque">
 				<h4 class="alert_error"> {{ form_errors(form.idreport) }} </h4>
 				{{ form_label(form.idreport) }}
 				{{ form_widget(form.idreport) }}
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="form_bloque">
+				<h4 class="alert_error"> {{ form_errors(form.projectproject) }} </h4>
+				{{ form_label(form.projectproject) }}
+				{{ form_widget(form.projectproject) }}
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="form_bloque">
+				<h4 class="alert_error"> {{ form_errors(form.useruser) }} </h4>
+				{{ form_label(form.useruser) }}
+				{{ form_widget(form.useruser) }}
 			</div>
 		</fieldset>
 	</div>

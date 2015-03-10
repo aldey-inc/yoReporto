@@ -17,15 +17,16 @@ class ActivityType extends AbstractType
         $builder
             ->add('hour','integer',array('required'=>true))
             ->add('minutes','integer',array('required'=>true))
-            ->add('description','textarea')
+            ->add('description')
             ->add('starttime')
             ->add('endtime')
             ->add('createdat','datetime')
             ->add('updatedat','datetime')
-            ->add('idproject')
+            ->add('projectproject')
             ->add('idreport')
+            ->add('useruser')
             ->add('Guardar','submit');
-        ;
+        ;        
     }
     
     /**

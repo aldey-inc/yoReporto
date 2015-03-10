@@ -39,13 +39,6 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="user", type="string", length=100, nullable=true)
-     */
-    private $user;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
     private $email;
@@ -84,6 +77,13 @@ class User implements UserInterface
      * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
      */
     private $deletedat;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastConnection", type="datetime", nullable=false)
+     */
+    private $lastconnection;
 
 
 
@@ -141,29 +141,6 @@ class User implements UserInterface
     public function getLastname()
     {
         return $this->lastname;
-    }
-
-    /**
-     * Set user
-     *
-     * @param string $user
-     * @return User
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**
@@ -304,19 +281,39 @@ class User implements UserInterface
         return $this->deletedat;
     }
 
+    /**
+     * Set lastconnection
+     *
+     * @param \DateTime $lastconnection
+     * @return User
+     */
+    public function setLastconnection($lastconnection)
+    {
+        $this->lastconnection = $lastconnection;
+
+        return $this;
+    }
 
     /**
-    * Funciones que se tienen que definir debido a la implementación de la Interfaz
-    */
-    function eraseCredentials()
+     * Get lastconnection
+     *
+     * @return \DateTime 
+     */
+    public function getLastconnection()
     {
+        return $this->lastconnection;
     }
-    function getRoles()
-    {
+
+
+    function eraseCredentials(){
+
+    }
+
+    function  getRoles(){
         return array('ROLE_USUARIO');
     }
-    function getUsername()
-    {
+
+    function getUsername(){
         return $this->getEmail();
     }
 

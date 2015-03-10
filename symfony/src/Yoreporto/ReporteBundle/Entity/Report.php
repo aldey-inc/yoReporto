@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Report
  *
- * @ORM\Table(name="report", indexes={@ORM\Index(name="fk_Report_User1_idx", columns={"idUser"})})
+ * @ORM\Table(name="report")
  * @ORM\Entity
  */
 class Report
@@ -48,16 +48,6 @@ class Report
      * @ORM\Column(name="status", type="integer", nullable=false)
      */
     private $status = '0';
-
-    /**
-     * @var \User
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
-     * })
-     */
-    private $iduser;
 
 
 
@@ -161,28 +151,5 @@ class Report
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * Set iduser
-     *
-     * @param \Yoreporto\ReporteBundle\Entity\User $iduser
-     * @return Report
-     */
-    public function setIduser(\Yoreporto\ReporteBundle\Entity\User $iduser = null)
-    {
-        $this->iduser = $iduser;
-
-        return $this;
-    }
-
-    /**
-     * Get iduser
-     *
-     * @return \Yoreporto\ReporteBundle\Entity\User 
-     */
-    public function getIduser()
-    {
-        return $this->iduser;
     }
 }
