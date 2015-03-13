@@ -122,4 +122,8 @@ class Project
     {
         return $this->updatedat;
     }
+
+    public function __toString(){
+        return $this->getName();
+    }
 }

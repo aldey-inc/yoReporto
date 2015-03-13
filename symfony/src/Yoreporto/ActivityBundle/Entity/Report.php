@@ -2,7 +2,13 @@
 
 namespace Yoreporto\ActivityBundle\Entity;
 
+use Symfony\Component\Validator\Constrainsts as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
+
+
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Report
@@ -49,6 +55,27 @@ class Report
      */
     private $status = '0';
 
+       
+    protected $activities;
+
+    public function __construct(){
+        $this->activities = new ArrayCollection();
+        $this->setUpdatedat(new \DateTime('now'));
+        $this->setCreatedat(new \DateTime('now'));
+        $this->setReportat(new \DateTime('now'));
+    }
+    
+    public function getActivities(){
+        return $this->activities;
+    }
+    
+    public function addActivity(Activity $activity){
+        $activity->setIdReport($this);
+
+        //$this->activities->add($activity);
+    }
+    
+    
 
 
     /**
@@ -151,5 +178,11 @@ class Report
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function __toString(){
+        /**return $this->getIdreport();
+        */
+        return 'Algo';
     }
 }

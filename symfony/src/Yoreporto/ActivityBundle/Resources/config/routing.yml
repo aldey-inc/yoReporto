@@ -5,3 +5,7 @@ yoreporto_activity_homepage:
 yoreporto_new_activity:
     path: /new/Activity
     defaults: { _controller: YoreportoActivityBundle:Default:newActivity }
+
+yoreporto_new_report:
+    path: /new/Report
+    defaults: { _controller: YoreportoActivityBundle:Default:newReport }

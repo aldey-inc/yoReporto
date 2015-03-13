@@ -24,21 +24,21 @@ class Activity
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startTime", type="datetime", nullable=false)
+     * @ORM\Column(name="startTime", type="time", nullable=false)
      */
     private $starttime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endTime", type="datetime", nullable=false)
+     * @ORM\Column(name="endTime", type="time", nullable=false)
      */
     private $endtime;
 
@@ -94,7 +94,7 @@ class Activity
     private $iduser;
 
 
-
+   
     /**
      * Get idactivity
      *
@@ -310,5 +310,14 @@ class Activity
     public function getIduser()
     {
         return $this->iduser;
+    }
+
+    public function __construct(){
+        $this->setStarttime(new \DateTime('now'));
+        $this->setEndtime(new \DateTime('now'));
+        $this->setCreatedat(new \DateTime('now'));
+        $this->setUpdatedat(new \DateTime('now'));
+        $this->setActivityat(new \DateTime('now'));
+         
     }
 }

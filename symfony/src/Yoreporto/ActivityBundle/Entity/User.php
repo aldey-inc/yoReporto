@@ -302,4 +302,8 @@ class User
     {
         return $this->lastconnection;
     }
+
+    public function __toString(){
+        return $this->getName().' '.$this->getLastname();
+    }
 }

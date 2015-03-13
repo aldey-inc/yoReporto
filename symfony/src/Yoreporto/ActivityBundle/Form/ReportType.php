@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ActivityType extends AbstractType
+class ReportType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,16 +15,19 @@ class ActivityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description')
-            ->add('starttime')            
-            ->add('endtime')
-            //->add('createdat')
-            //->add('updatedat')
-            //->add('activityat')
-            ->add('idproject')
-            //->add('idreport')
-            ->add('iduser')           
-            ->add('Guardar','submit');
+            //->add('createdat')//
+            //->add('updatedat')//
+            ->add('reportat')//
+            //->add('status')//
+
+            ->add('activities','collection', array
+                (                    
+                    'type' => new ActivityType(),
+                    'allow_add'    => true,
+                )
+            )            
+            ->add('Guardar','submit')
+        ;
     }
     
     /**
@@ -33,7 +36,8 @@ class ActivityType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Yoreporto\ActivityBundle\Entity\Activity',            
+            'data_class' => 'Yoreporto\ActivityBundle\Entity\Report'
+            
         ));
     }
 
@@ -42,6 +46,7 @@ class ActivityType extends AbstractType
      */
     public function getName()
     {
-        return 'yoreporto_activitybundle_activity';
+        return 'yoreporto_activitybundle_report';
     }
+
 }

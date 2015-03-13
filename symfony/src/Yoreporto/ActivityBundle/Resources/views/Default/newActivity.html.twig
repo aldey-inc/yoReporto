@@ -1,3 +1,87 @@
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/yoreportoactivity/css/jquery.datetimepicker.css')}}"/ >
+<script src="{{asset('bundles/yoreportoactivity/js/jquery.js')}}" type="text/javascript"></script>
+<script src="{{asset('bundles/yoreportoactivity/js/jquery.datetimepicker.js')}}" type="text/javascript"></script>
+
+
 {% block body %}
-    {{ form(form) }}
+    {{ form_start(form) }}
+    	
+    	<fieldset>		
+			{{ form_errors(form.idproject) }}
+    		{{ form_label(form.idproject) }}
+    		{{ form_widget(form.idproject) }}
+    	</fieldset>
+
+    	<fieldset>
+	    	{{ form_errors(form.idreport) }}
+	    	{{ form_label(form.idreport) }}
+	    	{{ form_widget(form.idreport) }}
+	    </fieldset>	
+
+	    <fieldset>
+	    	{{ form_errors(form.iduser) }}
+	    	{{ form_label(form.iduser) }}
+	    	{{ form_widget(form.iduser) }}
+    	</fieldset>
+
+    	<fieldset>
+    		{{ form_errors(form.description) }}
+    		{{ form_label(form.description) }}
+    		{{ form_widget(form.description) }}
+    	</fieldset>
+
+    	<fieldset>
+    		{{ form_errors(form.starttime) }}
+    		{{ form_label(form.starttime) }}
+    		{{ form_widget(form.starttime) }}
+    	</fieldset>
+
+    	<fieldset>
+    		{{ form_errors(form.endtime) }}
+    		{{ form_label(form.endtime) }}
+    		{{ form_widget(form.endtime) }}
+    	</fieldset>
+
+    	<fieldset hidden>
+    		{{ form_errors(form.createdat) }}
+    		{{ form_label(form.createdat) }}
+    		{{ form_widget(form.createdat) }}
+    	</fieldset>
+
+    	<fieldset hidden>
+    		<div type="hidden">
+    		{{ form_errors(form.updatedat) }}
+    		{{ form_label(form.updatedat) }}
+    		{{ form_widget(form.updatedat) }}
+    		</div>
+    	</fieldset>
+
+    	<fieldset hidden>
+	    	{{ form_errors(form.activityat) }}
+	    	{{ form_label(form.activityat) }}
+	    	{{ form_widget(form.activityat) }}
+	    </fieldset>
+    	
+    	<fieldset>
+    		{{ form_widget(form.Guardar) }}
+    	</fieldset>
+
+
+    {{ form_end(form)}}
 {% endblock %}
+
+
+	<script type="text/javascript">
+		jQuery('#yoreporto_activitybundle_activity_starttime').datetimepicker(
+		{	
+			datepicker:false,
+			step:30,
+ 			format: 'H:i:s'
+		});		
+		jQuery('#yoreporto_activitybundle_activity_endtime').datetimepicker(
+		{	
+			datepicker:false,
+			step:30,
+ 			format: 'H:i:s'
+		});				
+	</script>
