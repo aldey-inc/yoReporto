@@ -36,8 +36,7 @@ class ReportType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Yoreporto\ActivityBundle\Entity\Report'
-            
+            'data_class' => 'Yoreporto\ActivityBundle\Entity\Report'            
         ));
     }
 

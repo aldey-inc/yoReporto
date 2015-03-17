@@ -1,0 +1,22 @@
+Lista de actividades
+
+<br \>
+
+<table>
+	<thead>
+	</thead>
+	<tbody>
+		{% for activity in activitiesDone %}
+			<tr>
+				<th>{{ activity.idProject }}</th>
+				<th>{{ activity.idReport.reportat|date('Y-m-d H:i:s') }}</th>
+				<th>{{ activity.starttime|date('H:i') }}</th>
+				<th>{{ activity.endtime|date('H:i') }}		</th>	
+				<th>{{ activity.description}}</th>
+			</tr>			
+		{% endfor %}
+	</tbody>
+	<tfoot>
+
+	</tfoot>
+</table>

@@ -9,3 +9,11 @@ yoreporto_new_activity:
 yoreporto_new_report:
     path: /new/Report
     defaults: { _controller: YoreportoActivityBundle:Default:newReport }
+
+yoreporto_new_weekly_report:
+    path: /new/WeeklyReport
+    defaults: { _controller: YoreportoActivityBundle:Default:newWeeklyReport }
+
+yoreporto_view_activities:
+    path: /view/Activities
+    defaults: { _controller: YoreportoActivityBundle:Default:viewActivities }

@@ -41,6 +41,7 @@ class DefaultController extends Controller
     }
 
     public function newReportAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
 
     	$report= new Report();
     	
@@ -49,8 +50,19 @@ class DefaultController extends Controller
     	//$activity3= new Activity();
     	//$activity4= new Activity();
 
-    	$report->getActivities()->add($activity1);
-    	$report->getActivities()->add($activity2);
+        $activitiesAsigned= $em->getRepository('YoreportoActivityBundle:Projecthasuser')->findByIduser('2');
+
+        $activities=array();
+
+        foreach ($activitiesAsigned as $act) {
+            $activities[$act->getIdproject()->getName()]=new Activity();
+            $activities[$act->getIdproject()->getName()]->setIdproject($act->getIdproject());
+            $activities[$act->getIdproject()->getName()]->setIduser($act->getIduser());
+            $report->getActivities()->add($activities[$act->getIdproject()->getName()]);
+        }
+
+    	
+    	//$report->getActivities()->add($activity2);
     	//$report->getActivities()->add($activity3);
     	//$report->getActivities()->add($activity4);
 
@@ -62,7 +74,7 @@ class DefaultController extends Controller
     	
     	if($form->isValid()){
 
-    		$em = $this->getDoctrine()->getManager();
+    		
 
     		$em-> persist($report);
 
@@ -85,6 +97,25 @@ class DefaultController extends Controller
     		return $this->redirect($this->generateUrl('yoreporto_activity_homepage', array('name' => 'Hola2')));
     	}
 
-    	return $this->render("YoreportoActivityBundle:Default:newReport.html.twig",array('form' => $form->createView()));
+    	return $this->render("YoreportoActivityBundle:Default:newReport.html.twig",array('form' => $form->createView(),'activities'=>$activities));
+    }
+
+    public function newWeeklyReportAction(){
+
+        $em=$this->getDoctrine()->getManager();
+        $activitiesAsigned= $em->getRepository('YoreportoActivityBundle:Projecthasuser')->findByIduser('2');
+
+
+
+
+
+        return $this->render("YoreportoActivityBundle:Default:newWeeklyReport.html.twig", array('activitiesAsigned'=>$activitiesAsigned));
+    }
+    public function viewActivitiesAction(){
+        $em=$this->getDoctrine()->getManager();
+
+        $activitiesDone= $em->getRepository('YoreportoActivityBundle:Activity')->findByIduser('1');
+
+        return $this->render('YoreportoActivityBundle:Default:viewActivities.html.twig',array('activitiesDone'=>$activitiesDone));      
     }
 }
